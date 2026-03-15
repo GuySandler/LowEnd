@@ -90,11 +90,10 @@ func AuthCallback(w http.ResponseWriter, r *http.Request, code string) {
 		return
 	}
 
-	FetchUserInfo(w, tokenResp.AccessToken)
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	FetchUserInfo(w, r, tokenResp.AccessToken)
 }
 
-func FetchUserInfo(w http.ResponseWriter, accessToken string) {
+func FetchUserInfo(w http.ResponseWriter, r *http.Request, accessToken string) {
 	req, err := http.NewRequest("GET", "https://auth.hackclub.com/api/v1/me", nil)
 	if err != nil {
 		http.Error(w, "failed to create request", http.StatusInternalServerError)
@@ -112,9 +111,10 @@ func FetchUserInfo(w http.ResponseWriter, accessToken string) {
 	var user map[string]any
 	json.NewDecoder(resp.Body).Decode(&user)
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(user)
-
+	if user["identity"].(map[string]any)["ysws_eligible"].(bool) != true {
+		http.Error(w, "Sorry! You are not eligible for YSWS, please send a message on the slack at #identity-help", http.StatusForbidden)
+		return
+	}
 	// log.Print(user)
 	AddUser(
 		user["identity"].(map[string]any)["first_name"].(string)+" "+user["identity"].(map[string]any)["last_name"].(string),
@@ -122,10 +122,20 @@ func FetchUserInfo(w http.ResponseWriter, accessToken string) {
 		user["identity"].(map[string]any)["slack_id"].(string),
 		user["identity"].(map[string]any)["verification_status"].(string) == "verified",
 		user["identity"].(map[string]any)["ysws_eligible"].(bool))
+
+	name := user["identity"].(map[string]any)["first_name"].(string) + " " + user["identity"].(map[string]any)["last_name"].(string)
+	slackid := user["identity"].(map[string]any)["slack_id"].(string)
+
+	http.Redirect(w, r, "/?name="+url.QueryEscape(name)+
+		"&slackid="+url.QueryEscape(slackid),
+		http.StatusSeeOther)
 }
 
 func AddUser(name string, email string, slackid string, verified bool, candoysws bool) {
 	_, err := db.Exec("INSERT INTO users (name, email, slackid, verified, candoysws) VALUES (?, ?, ?, ?, ?)", name, email, slackid, verified, candoysws)
+	if err != nil && err.Error() == "UNIQUE constraint failed: users.slackid" {
+		log.Printf("User with slackid %s already exists, skipping insert\n", slackid)
+	}
 	if err != nil {
 		log.Println("Error adding user:", err)
 	}
