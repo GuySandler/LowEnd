@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/htmx.org"></script>
+	<link rel="stylesheet" href="/static/style.css">
+	<title>LowEnd</title>
+</head>
+<body>
+	<div id="navbar">
+		<button class="navbar-button">LowEnd</button>
+		<div>
+			<button class="navbar-button">Submit</button>
+			<button class="navbar-button">Projects</button>
+			<button class="navbar-button">Guide</button>
+			<button class="navbar-button">Shop</button>
+		</div>
+		<div>
+			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
+		</div>
+	</div>
+	<div id="main">
+		<h1 id="title">LowEnd</h1>
+		<h2>You Ship: Program that uses the least amount of resources and aligns with the rotating theme</h2>
+		<h2>We Ship: Prizes!</h2>
+	</div>
+	<div>
+		<h1>The Point System</h1>
+		<p>
+			Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
+		</p>
+
+	</div>
+	<div>
+		<h1>Frequently Asked Questions</h1>
+		<h2>What is LowEnd?</h2>
+		<p>
+			LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
+		</p>
+		<h2>What can I submit?</h2>
+		<p>
+			TBD
+		</p>
+		<h2>How do I submit?</h2>
+		<p>
+			<a href="/submit">Submit Here</a>
+		</p>
+		<h2>What are the requirements?</h2>
+		<p>
+			<uL>
+				<li>The program must be able to run</li>
+				<li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
+				<li>Have at least X of the features from the required feature list of the current theme.</li>
+			</uL>
+		</p>
+		<h2>Do I have to do every theme?</h2>
+		<p>
+			No, you can choose which themes to participate in, but the more you do the more points you get!
+		</p>
+		<h2>Can I use AI?</h2>
+		<p>
+			TBD AI policy
+		</p>
+	</div>
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('code')) {
+			const code = urlParams.get('code');
+			console.log('Authorization code:', code);
+		}
+	</script>
+</body>
+</html>
