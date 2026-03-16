@@ -23,7 +23,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	db.Exec("CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, githublink TEXT, description TEXT, timespent INTEGER, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)")
+	db.Exec("CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, githublink TEXT, description TEXT, timespent INTEGER, thumbnail TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)")
 	db.Exec("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, slackid TEXT UNIQUE, verified BOOLEAN, candoysws BOOLEAN)")
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
@@ -45,10 +45,13 @@ func main() {
 		tmpl.Execute(w, nil)
 	})
 
-	// auth
 	http.HandleFunc("/api/auth/callback", func(w http.ResponseWriter, r *http.Request) {
 		code := r.URL.Query().Get("code")
 		AuthCallback(w, r, code)
+	})
+
+	http.HandleFunc("/api/server/usage", func(w http.ResponseWriter, r *http.Request) {
+		// TODO
 	})
 
 	fmt.Println("Server is running on http://localhost:8080")

@@ -13,8 +13,10 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	background-color: #333;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	width: 100%;
+	margin-bottom: 10px;
 }
 .navbar-button {
 	background-color: #333;
@@ -29,18 +31,61 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 25vh;
-	max-height: 200px;
+	/* height: 25vh; */
+	/* max-height: 200px; */
+	margin-bottom: 20px;
 }
 #main > * {
 	margin: 10px;
 }
 #title {
-	font-size: 3em;
+	font-size: 8em;
 }
 #login-section {
 	color: white;
-	border: 1px solid red;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	padding: 10px;
+}
+
+.milestones {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: center;
+	margin-bottom: 20px;
+	/* border: red solid 1px; */
+	padding:10px;
+	width: 75vw;
+}
+.milestone {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	/* border: #77d594 solid 1px; */
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 3vw;
+	padding-bottom: 3vw;
+	border-radius: 5px;
+	flex: 1;
+	transition:cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+}
+.milestone h2 {
+	margin-bottom: 15px;
+}
+.milestone:hover {
+	transform: translateY(-5px);
+}
+
+.card {
+	margin: 10px;
+}
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }

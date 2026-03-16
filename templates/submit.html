@@ -21,63 +21,17 @@
 	</div>
 	<div id="main">
 		<h1 id="title">LowEnd</h1>
-		<h2>Computer components are getting expensive... lets try to use as little as possible like it's the 2000s</h2>
 		<h2>You Ship: Program that uses the least amount of resources and aligns with the rotating theme</h2>
 		<h2>We Ship: Prizes!</h2>
 	</div>
-	<div class="card center">
+	<div>
 		<h1>The Point System</h1>
 		<p>
 			Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
 		</p>
-		<h1 style="margin-top: 20px;">RAM Milestones</h1>
-		<div class="milestones">
-			<div class="milestone" style="background-color: #e9a115">
-				<h2>Tier 1</h2>
-				<h3>128 MB or more</h3>
-			</div>
-			<div class="milestone" style="background-color: #efb415">
-				<h2>Tier 2</h2>
-				<h3>>128 MB to 64 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f3c719">
-				<h2>Tier 3</h2>
-				<h3>>64 MB to 32 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f6da21">
-				<h2>Tier 4</h2>
-				<h3>>32MB to 16 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f7ee2d">
-				<h2>Tier 5</h2>
-				<h3>>16 MB</h3>
-			</div>
-		</div>
-		<h1>Storage Milestones</h1>
-		<div class="milestones">
-			<div class="milestone" style="background-color: #e9a115">
-				<h2>Tier 1</h2>
-				<h3>32 MB or more</h3>
-			</div>
-			<div class="milestone" style="background-color: #efb415">
-				<h2>Tier 2</h2>
-				<h3>>32 MB to 16 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f3c719">
-				<h2>Tier 3</h2>
-				<h3>>16 MB to 8 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f6da21">
-				<h2>Tier 4</h2>
-				<h3>>8MB to 4 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f7ee2d">
-				<h2>Tier 5</h2>
-				<h3>>4 MB</h3>
-			</div>
-		</div>
+
 	</div>
-	<div class="card">
+	<div>
 		<h1>Frequently Asked Questions</h1>
 		<h2>What is LowEnd?</h2>
 		<p>
@@ -107,16 +61,6 @@
 		<p>
 			TBD AI policy
 		</p>
-		<h2>Am I eligible?</h2>
-		<p>
-			TBD AI policy
-		</p>
-	</div>
-	<div class="card" id="useage">
-		<h1>This web client is using</h1>
-		<p id="getusage">Getting useage...</p>
-		<h1>This web server is using</h1>
-		<p id="getusage">TBD</p>
 	</div>
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
@@ -131,15 +75,6 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
-
-		setInterval(() => {
-			let statsText = "";
-			if (performance.memory) {
-				const memoryUsed = (performance.memory.usedJSHeapSize / 1048576).toFixed(2);
-				statsText += `Memory: ${memoryUsed} MB`;
-			}
-			document.getElementById('getusage').innerHTML = statsText;
-		}, 5000)
 	</script>
 </body>
 </html>

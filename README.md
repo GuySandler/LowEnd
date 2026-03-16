@@ -14,3 +14,8 @@ config name, description, github url.
 get a script to run your program and stuff that auto submits
 
 make rubric
+
+
+rules:
+must adhear to theme
+must run offline
