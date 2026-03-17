@@ -1,6 +1,10 @@
+@font-face {
+	font-family: "Phantom Sans";
+	src: url(/static/hc.woff2) format("woff2");
+}
 * {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif;
-	margin:0;
+	font-family: "Phantom Sans", sans-serif;
+	margin:0;;
 }
 body {
 	display: flex;
@@ -17,6 +21,8 @@ body {
 	padding-bottom: 10px;
 	width: 100%;
 	margin-bottom: 10px;
+	position: sticky;
+	top: 0;
 }
 .navbar-button {
 	background-color: #333;
@@ -24,6 +30,12 @@ body {
 	border: none;
 	padding: 10px 20px;
 	cursor: pointer;
+}
+#orpheus {
+	position: fixed;
+	left:0;
+	top:55px;
+	width: 300px;
 }
 
 #main {
@@ -39,7 +51,7 @@ body {
 	margin: 10px;
 }
 #title {
-	font-size: 8em;
+	font-size: 8rem;
 }
 #login-section {
 	color: white;
@@ -57,7 +69,7 @@ body {
 	margin-bottom: 20px;
 	/* border: red solid 1px; */
 	padding:10px;
-	width: 75vw;
+	width: 55vw;
 }
 .milestone {
 	display: inline-flex;
@@ -88,4 +100,26 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+.center-h {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.debug {
+	border: red solid 1px;
+}
+
+@media (max-width: 1100px) {
+	.milestones {
+		flex-direction: column;
+	}
+	.milestone {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#orpheus {
+		display:none;
+	}
 }
