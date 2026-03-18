@@ -8,7 +8,12 @@
 </head>
 <body>
 	<div id="navbar">
-		<button class="navbar-button" onclick="window.location.href='/'">LowEnd</button>
+		<div class="green">
+			<img src="/static/imgs/hc.svg" style="margin-left:20px;height:30px;float:right;">
+			<button class="navbar-button"
+			style="float:right;font-family: 'Phantom Sans Bold';letter-spacing: 1px;"
+			onclick="window.location.href='/'">LowEnd</button>
+		</div>
 		<div>
 			<button class="navbar-button" onclick="window.location.href='/submit'">Submit</button>
 			<button class="navbar-button" onclick="window.location.href='/projects'">Projects</button>
@@ -22,120 +27,136 @@
 	<img src="/static/imgs/orpheus-min.svg" id="orpheus">
 	<div id="main">
 		<div class="center-h" style="width:55vw;">
-			<img src="/static/imgs/xpcomputer.png" style="width:50%;">
 			<div class="center">
-				<h1 id="title">LowEnd</h1>
+				<h1 id="title" class="lowend">LowEnd</h1>
 				<h2 style="text-align: center;">Computer components are getting expensive... lets try to use as little as possible like it's the 2000s</h2>
 			</div>
 		</div>
 		<h2>You Ship: Program that uses the least amount of resources and aligns with the rotating theme</h2>
 		<h2>We Ship: Prizes!</h2>
 	</div>
-	<div class="card center">
-		<h1>How It Works</h1>
-		<h2><span>1. </span> Check the theme (changes every 8 days)</h2>
-		<h2><span>2. </span> Create a program that fits the theme</h2>
-		<h2><span>3. </span> Optimize it until you can't any more</h2>
-		<h2><span>4. </span> Submit it and earn points!</h2>
-		<h2><span>5. </span> Repeat!</h2>
+	<div class="inlinecards">
+		<div class="card center inline">
+			<h1 class="cardtitle">How It Works</h1>
+			<div class="cardinner">
+				<h2><span>1. </span> Check the theme (changes every 8 days)</h2>
+				<h2><span>2. </span> Create a program that fits the theme</h2>
+				<h2><span>3. </span> Optimize it until you can't any more</h2>
+				<h2><span>4. </span> Submit it and earn points!</h2>
+				<h2><span>5. </span> Repeat!</h2>
+			</div>
+		</div>
+		<div class="card center inline">
+			<h1 class="cardtitle">Current Theme</h1>
+			<div class="cardinner">
+				<h1>UNKNOWN</h1>
+				<h2>ends in -1 days</h2>
+			</div>
+		</div>
 	</div>
 	<div class="card center">
-		<h1>The Point System</h1>
-		<p>
-			Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
-		</p>
-		<h1 style="margin-top: 20px;">RAM Milestones</h1>
-		<div class="milestones">
-			<div class="milestone" style="background-color: #e9a115">
-				<h2>Tier 1</h2>
-				<h3>128 MB or more</h3>
+		<h1 class="cardtitle">The Point System</h1>
+		<div class="cardinner">
+			<h2>
+				Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
+			</h2>
+			<h1 style="margin-top: 20px;">RAM Milestones</h1>
+			<div class="milestones">
+				<div class="milestone" style="background-color: #e9a115">
+					<h2>Tier 1</h2>
+					<h3>128 MB or more</h3>
+				</div>
+				<div class="milestone" style="background-color: #efb415">
+					<h2>Tier 2</h2>
+					<h3>&lt;128 MB to 64 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f3c719">
+					<h2>Tier 3</h2>
+					<h3>&lt;64 MB to 16 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f6da21">
+					<h2>Tier 4</h2>
+					<h3>&lt;16MB to 4 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f7ee2d">
+					<h2>Tier 5</h2>
+					<h3>&lt;4 MB</h3>
+				</div>
 			</div>
-			<div class="milestone" style="background-color: #efb415">
-				<h2>Tier 2</h2>
-				<h3>>128 MB to 64 MB</h3>
+			<h1>Storage Milestones</h1>
+			<div class="milestones">
+				<div class="milestone" style="background-color: #e9a115">
+					<h2>Tier 1</h2>
+					<h3>32 MB or more</h3>
+				</div>
+				<div class="milestone" style="background-color: #efb415">
+					<h2>Tier 2</h2>
+					<h3>&lt;32 MB to 16 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f3c719">
+					<h2>Tier 3</h2>
+					<h3>&lt;16 MB to 8 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f6da21">
+					<h2>Tier 4</h2>
+					<h3>&lt;8MB to 4 MB</h3>
+				</div>
+				<div class="milestone" style="background-color: #f7ee2d">
+					<h2>Tier 5</h2>
+					<h3>&lt;4 MB</h3>
+				</div>
 			</div>
-			<div class="milestone" style="background-color: #f3c719">
-				<h2>Tier 3</h2>
-				<h3>>64 MB to 16 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f6da21">
-				<h2>Tier 4</h2>
-				<h3>>16MB to 4 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f7ee2d">
-				<h2>Tier 5</h2>
-				<h3>>4 MB</h3>
-			</div>
-		</div>
-		<h1>Storage Milestones</h1>
-		<div class="milestones">
-			<div class="milestone" style="background-color: #e9a115">
-				<h2>Tier 1</h2>
-				<h3>32 MB or more</h3>
-			</div>
-			<div class="milestone" style="background-color: #efb415">
-				<h2>Tier 2</h2>
-				<h3>>32 MB to 16 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f3c719">
-				<h2>Tier 3</h2>
-				<h3>>16 MB to 8 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f6da21">
-				<h2>Tier 4</h2>
-				<h3>>8MB to 4 MB</h3>
-			</div>
-			<div class="milestone" style="background-color: #f7ee2d">
-				<h2>Tier 5</h2>
-				<h3>>4 MB</h3>
-			</div>
-		</div>
-		Want more?
-		<div>
-			<h2>At the end of each theme there will be a community vote for the programs wuth the best aesthetics, most features, and most optimized</h2>
+			<h2>Want more?</h2>
+			<h3>At the end of each theme there will be a community vote for the programs wuth the best aesthetics, most features, and most optimized</h3>
 		</div>
 	</div>
 	<div class="card">
-		<h1>Frequently Asked Questions</h1>
-		<h2>What is LowEnd?</h2>
-		<p>
-			LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
-		</p>
-		<h2>What can I make?</h2>
-		<p>
-			Any program that fits the current theme and meets the rquirements
-		</p>
-		<h2>What are the requirements?</h2>
-		<p>
-			<uL>
-				<li>The program must be able to run</li>
-				<li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
-				<li>Have at least X of the features from the required feature list of the current theme.</li>
-				<li>1 submission per theme</li>
-			</uL>
-		</p>
-		<h2>Do I have to do every theme?</h2>
-		<p>
-			No, you can choose which themes to participate in, but the more you do the more points you get!
-		</p>
-		<h2>Can I use AI?</h2>
-		<p>
-			TBD AI policy
-		</p>
-		<h2>Am I eligible?</h2>
-		<p>
-			Stuff
-		</p>
-		<h2>When does it end?</h2>
-		<p>
-			TBD
-		</p>
+		<h1 class="cardtitle">Frequently Asked Questions</h1>
+		<div class="cardinner">
+			<h2>What is LowEnd?</h2>
+			<p>
+				LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
+			</p>
+			<h2>What can I make?</h2>
+			<p>
+				Any program that fits the current theme and meets the rquirements
+			</p>
+			<h2>What are the requirements?</h2>
+			<p>
+				<uL>
+					<li>The program must be able to run</li>
+					<li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
+					<li>Have at least X of the features from the required feature list of the current theme.</li>
+					<li>1 submission per theme</li>
+				</uL>
+			</p>
+			<h2>Do I have to do every theme?</h2>
+			<p>
+				No, you can choose which themes to participate in, but the more you do the more points you get!
+			</p>
+			<h2>Can I use AI?</h2>
+			<p>
+				TBD AI policy
+			</p>
+			<h2>Am I eligible?</h2>
+			<p>
+				Stuff
+			</p>
+			<h2>When does it end?</h2>
+			<p>
+				TBD
+			</p>
+		</div>
 	</div>
 	<div class="card" id="useage">
-		<h1>This web client is using</h1>
-		<p id="getusage">Getting useage...</p>
-		<h1>This web server is using</h1>
-		<p id="getusage">TBD</p>
+		<h1 class="cardtitle">Even this website is optimized!</h1>
+		<div class="cardinner">
+			<h2>I made this backend in GO, downscaled images to minimum size, minimized everything, and use HTMX for server calls</h2>
+			<h2>This web client is using</h2>
+			<p id="getusage">Getting useage...</p>
+			<h2>This web server is using</h2>
+			<p id="getusage">TBD</p>
+		</div>
 	</div>
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
