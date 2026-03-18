@@ -28,7 +28,13 @@
 	<div id="main">
 		<div class="center-h" style="width:55vw;">
 			<div class="center">
-				<h1 id="title" class="lowend">LowEnd</h1>
+				<div>
+					<div style="margin: 0;">
+						<h2 id="supertitle">Hack Club</h2>
+					</div>
+					<h1 id="title">LowEnd</h1>
+				</div>
+				
 				<h2 style="text-align: center;">Computer components are getting expensive... lets try to use as little as possible like it's the 2000s</h2>
 			</div>
 		</div>
@@ -80,7 +86,7 @@
 				</div>
 				<div class="milestone" style="background-color: #f7ee2d">
 					<h2>Tier 5</h2>
-					<h3>&lt;4 MB</h3>
+					<h3>4 MB or less</h3>
 				</div>
 			</div>
 			<h1>Storage Milestones</h1>
@@ -103,7 +109,7 @@
 				</div>
 				<div class="milestone" style="background-color: #f7ee2d">
 					<h2>Tier 5</h2>
-					<h3>&lt;4 MB</h3>
+					<h3>4 MB or less</h3>
 				</div>
 			</div>
 			<h2>Want more?</h2>
@@ -148,16 +154,6 @@
 			</p>
 		</div>
 	</div>
-	<div class="card" id="useage">
-		<h1 class="cardtitle">Even this website is optimized!</h1>
-		<div class="cardinner">
-			<h2>I made this backend in GO, downscaled images to minimum size, minimized everything, and use HTMX for server calls</h2>
-			<h2>This web client is using</h2>
-			<p id="getusage">Getting useage...</p>
-			<h2>This web server is using</h2>
-			<p id="getusage">TBD</p>
-		</div>
-	</div>
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('slackid')) {
@@ -171,15 +167,6 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
-
-		setInterval(() => {
-			let statsText = "";
-			if (performance.memory) {
-				const memoryUsed = (performance.memory.usedJSHeapSize / 1048576).toFixed(2);
-				statsText += `Memory: ${memoryUsed} MB`;
-			}
-			document.getElementById('getusage').innerHTML = statsText;
-		}, 5000)
 	</script>
 </body>
 </html>
