@@ -54,7 +54,7 @@ func main() {
 		// TODO
 	})
 
-	fmt.Println("Server is running on http://localhost:8080")
+	fmt.Println("Server is running on " + os.Getenv("URL"))
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
 
@@ -72,7 +72,7 @@ func AuthCallback(w http.ResponseWriter, r *http.Request, code string) {
 	body.Set("client_secret", os.Getenv("CLIENT_SECRET"))
 	body.Set("code", code)
 	body.Set("grant_type", "authorization_code")
-	body.Set("redirect_uri", "http://localhost:8080/api/auth/callback")
+	body.Set("redirect_uri", os.Getenv("URL")+"/api/auth/callback")
 
 	resp, err := http.PostForm("https://auth.hackclub.com/oauth/token", body)
 	if err != nil {
