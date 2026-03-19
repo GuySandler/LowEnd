@@ -132,6 +132,9 @@ body {
 .milestone h2 {
 	margin-bottom: 15px;
 }
+.milestone h3 {
+	text-align: center;
+}
 .milestone:hover {
 	transform: translateY(-5px);
 }
