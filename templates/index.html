@@ -8,17 +8,17 @@
 </head>
 <body>
 	<div id="navbar">
-		<div class="green" onclick="window.location.href='/'" style="cursor:pointer;">
+		<div class="green" hx-get="/" hx-target="body" hx-push-url="true" hx-swap="outerHTML" style="cursor:pointer;">
 			<img src="/static/imgs/HCxp4.png" style="margin-left:20px;height:30px;">
 			<button class="navbar-button"
 			style="font-family: 'Phantom Sans Bold';letter-spacing: 1px;"
 			>Start</button>
 		</div>
-		<div>
-			<button class="navbar-button" onclick="window.location.href='/submit'">Submit</button>
-			<button class="navbar-button" onclick="window.location.href='/projects'">Projects</button>
-			<button class="navbar-button" onclick="window.location.href='/guide'">Guide</button>
-			<button class="navbar-button" onclick="window.location.href='/shop'">Shop</button>
+		<div hx-target="body" hx-push-url="true" hx-swap="outerHTML">
+			<button class="navbar-button" hx-get="/submit">Submit</button>
+			<button class="navbar-button" hx-get="/projects">Projects</button>
+			<button class="navbar-button" hx-get="/guide">Guide</button>
+			<button class="navbar-button" hx-get="/shop">Shop</button>
 		</div>
 		<div id="login-section">
 			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
@@ -121,29 +121,29 @@
 	<div class="card">
 		<h1 class="cardtitle">Frequently Asked Questions</h1>
 		<div class="cardinner">
-			<div class="droptext" onclick="droptext(this)">
-				<div class="droptext-title">
+			<details class="droptext">
+				<summary class="droptext-title">
 					<h2>What is LowEnd?</h2>
 					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-				</div>
+				</summary>
 				<p class="droptext-inner">
 					LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
 				</p>
-			</div>
-			<div class="droptext" onclick="droptext(this)">
-				<div class="droptext-title">
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
 					<h2>What can I make?</h2>
 					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-				</div>
+				</summary>
 				<p class="droptext-inner">
 					Any program that fits the current theme and meets the rquirements
 				</p>
-			</div>
-			<div class="droptext" onclick="droptext(this)">
-                <div class="droptext-title">
+			</details>
+			<details class="droptext">
+                <summary class="droptext-title">
                     <h2>What are the requirements?</h2>
                     <img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-                </div>
+                </summary>
                 <div class="droptext-inner">
                     <ul>
                         <li>The program must be able to run</li>
@@ -152,34 +152,34 @@
                         <li>1 submission per theme</li>
                     </ul>
                 </div>
-            </div>
-			<div class="droptext" onclick="droptext(this)">
-				<div class="droptext-title">
+            </details>
+			<details class="droptext">
+				<summary class="droptext-title">
 					<h2>Do I have to do every theme?</h2>
 					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-				</div>
+				</summary>
 				<p class="droptext-inner">
 					No, you can choose which themes to participate in, but the more you do the more points you get!
 				</p>
-			</div>
-			<div class="droptext" onclick="droptext(this)">
-				<div class="droptext-title">
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
 					<h2>Can I use AI?</h2>
 					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-				</div>
+				</summary>
 				<p class="droptext-inner">
 					TBD AI policy
 				</p>
-			</div>
-			<div class="droptext" onclick="droptext(this)">
-				<div class="droptext-title">
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
 					<h2>When does it end?</h2>
 					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
-				</div>
+				</summary>
 				<p class="droptext-inner">
 					TBD
 				</p>
-			</div>
+			</details>
 		</div>
 	</div>
 	<div id="disclaimer">
@@ -198,22 +198,6 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
-
-		function droptext(element) {
-            const droptextIcon = element.querySelector('.droptext-arrow');
-            const droptextInner = element.querySelector('.droptext-inner');
-            const isOpen = element.classList.contains('droptext-open');
-            if (isOpen) {
-                droptextIcon.style.transform = 'rotate(180deg)';
-                droptextInner.style.display = 'none';
-                element.classList.remove('droptext-open');
-            }
-            else {
-                droptextIcon.style.transform = 'rotate(0deg)';
-                droptextInner.style.display = 'block';
-                element.classList.add('droptext-open');
-            }
-        }
 	</script>
 </body>
 </html>

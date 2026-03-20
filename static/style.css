@@ -244,6 +244,12 @@ body {
 	border-radius: 4px;
 	background-color: #f0f4fd;
 }
+details > summary {
+	list-style: none;
+}
+summary::-webkit-details-marker {
+	display: none;
+}
 .droptext-title {
 	display: flex;
 	align-items: center;
@@ -259,12 +265,15 @@ body {
 	border-radius: 3px;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
-.droptext-open .droptext-title {
+details[open] .droptext-title {
 	border-bottom: 1px solid #16368d;
 	border-radius: 3px 3px 0 0;
 }
+details[open] .droptext-arrow {
+	transform: rotate(0deg) !important;
+}
 .droptext-inner {
-	display: none;
+	display: block;
 	padding: 15px;
 	margin-top: 0;
 	font-size: 1.1rem;
