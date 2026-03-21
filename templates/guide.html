@@ -8,61 +8,42 @@
 </head>
 <body>
 	<div id="navbar">
-		<button class="navbar-button" onclick="window.location.href='/'">LowEnd</button>
-		<div>
-			<button class="navbar-button" onclick="window.location.href='/submit'">Submit</button>
-			<button class="navbar-button" onclick="window.location.href='/projects'">Projects</button>
-			<button class="navbar-button" onclick="window.location.href='/guide'">Guide</button>
-			<button class="navbar-button" onclick="window.location.href='/shop'">Shop</button>
+		<div class="green" hx-get="/" hx-target="body" hx-push-url="true" hx-swap="outerHTML" style="cursor:pointer;">
+			<img src="/static/imgs/HCxp4.png" style="margin-left:20px;height:30px;">
+			<button class="navbar-button"
+			style="font-family: 'Phantom Sans Bold';letter-spacing: 1px;"
+			>Start</button>
+		</div>
+		<div hx-target="body" hx-push-url="true" hx-swap="outerHTML">
+			<button class="navbar-button" hx-get="/submit">Submit</button>
+			<button class="navbar-button" hx-get="/projects">Projects</button>
+			<button class="navbar-button" hx-get="/guide">Guide</button>
+			<button class="navbar-button" hx-get="/shop">Shop</button>
 		</div>
 		<div id="login-section">
-			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
+			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A3004%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
 		</div>
 	</div>
-	<div id="main">
-		<h1 id="title">LowEnd</h1>
-		<h2>You Ship: Program that uses the least amount of resources and aligns with the rotating theme</h2>
-		<h2>We Ship: Prizes!</h2>
+	<div class="card" style="width:30vw;">
+		<h1 class="cardtitle">System Error</h1>
+		<div class="cardinner" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+			<img src="/static/imgs/error.png" style="width: 10vw;">
+			<div>
+				<h2>Guide Not Found.</h2>
+				<h2>Check back later!</h2>
+			</div>
+		</div>
 	</div>
-	<div>
-		<h1>The Point System</h1>
-		<p>
-			Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
-		</p>
-
-	</div>
-	<div>
-		<h1>Frequently Asked Questions</h1>
-		<h2>What is LowEnd?</h2>
-		<p>
-			LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
-		</p>
-		<h2>What can I submit?</h2>
-		<p>
-			TBD
-		</p>
-		<h2>How do I submit?</h2>
-		<p>
-			<a href="/submit">Submit Here</a>
-		</p>
-		<h2>What are the requirements?</h2>
-		<p>
-			<uL>
-				<li>The program must be able to run</li>
-				<li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
-				<li>Have at least X of the features from the required feature list of the current theme.</li>
-			</uL>
-		</p>
-		<h2>Do I have to do every theme?</h2>
-		<p>
-			No, you can choose which themes to participate in, but the more you do the more points you get!
-		</p>
-		<h2>Can I use AI?</h2>
-		<p>
-			TBD AI policy
-		</p>
+	<div id="orphy" style="cursor:pointer;" onclick="orphyClick()">
+		<img id="orphyimg" src="/static/orphy/orpheus3rmbg.png">
+		<div id="orphytext">
+			<p>This is where I shine!</p>
+		</div>
+		<div id="textboxtriangle"></div>
+		<img id="orphybackground" src="static/orphy/background.png">
 	</div>
 	<script>
+	{
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('slackid')) {
 			const slackid = urlParams.get('slackid');
@@ -75,6 +56,31 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
+		class OrphySay {
+			constructor(text, duration, pose) {
+				this.text = text;
+				this.duration = duration;
+				this.pose = pose;
+			}
+		}
+		const orphyText = [
+			new OrphySay("This is where I shine!", 1500, "3"),
+			new OrphySay("When the guide is made, I will have more to say!", 1500, "2"),
+			new OrphySay("I will be expanded when the guide is made", 1500, "1")
+		]
+		// let istalking = false;
+		window.orphyClick = function() {
+			// if (istalking) return;
+			// istalking = true;
+			const randomIndex = Math.floor(Math.random() * orphyText.length);
+			const orphySay = orphyText[randomIndex];
+			document.getElementById('orphytext').innerHTML = `<p>${orphySay.text}</p>`;
+			document.getElementById('orphyimg').src = `/static/orphy/orpheus${orphySay.pose}rmbg.png`;
+			// setTimeout(() => {
+			// 	istalking = false;
+			// }, orphySay.duration);
+		}
+	}
 	</script>
 </body>
 </html>

@@ -44,14 +44,14 @@ func main() {
 		tmpl := template.Must(template.ParseFiles("templates/guide.html"))
 		tmpl.Execute(w, nil)
 	})
+	http.HandleFunc("/shop", func(w http.ResponseWriter, r *http.Request) {
+		tmpl := template.Must(template.ParseFiles("templates/shop.html"))
+		tmpl.Execute(w, nil)
+	})
 
 	http.HandleFunc("/api/auth/callback", func(w http.ResponseWriter, r *http.Request) {
 		code := r.URL.Query().Get("code")
 		AuthCallback(w, r, code)
-	})
-
-	http.HandleFunc("/api/server/usage", func(w http.ResponseWriter, r *http.Request) {
-		// TODO
 	})
 
 	fmt.Println("Server is running on " + os.Getenv("URL"))
@@ -82,13 +82,11 @@ func AuthCallback(w http.ResponseWriter, r *http.Request, code string) {
 	defer resp.Body.Close()
 
 	bodyBytes, _ := io.ReadAll(resp.Body)
-	// fmt.Printf("Token response body: %s\n", string(bodyBytes))
 
 	var tokenResp TokenResponse
 	json.Unmarshal(bodyBytes, &tokenResp)
 
 	if tokenResp.AccessToken == "" {
-		// fmt.Printf("Token response: %+v\n", tokenResp)
 		http.Error(w, "failed to get access token", http.StatusInternalServerError)
 		return
 	}
@@ -118,7 +116,6 @@ func FetchUserInfo(w http.ResponseWriter, r *http.Request, accessToken string) {
 		http.Error(w, "Sorry! You are not eligible for YSWS, please send a message on the slack at #identity-help", http.StatusForbidden)
 		return
 	}
-	// log.Print(user)
 	AddUser(
 		user["identity"].(map[string]any)["first_name"].(string)+" "+user["identity"].(map[string]any)["last_name"].(string),
 		user["identity"].(map[string]any)["primary_email"].(string),

@@ -8,23 +8,22 @@
 </head>
 <body>
 	<div id="navbar">
-		<div class="green">
-			<img src="/static/imgs/hc.svg" style="margin-left:20px;height:30px;">
+		<div class="green" hx-get="/" hx-target="body" hx-push-url="true" hx-swap="outerHTML" style="cursor:pointer;">
+			<img src="/static/imgs/HCxp4.png" style="margin-left:20px;height:30px;">
 			<button class="navbar-button"
 			style="font-family: 'Phantom Sans Bold';letter-spacing: 1px;"
-			onclick="window.location.href='/'">LowEnd</button>
+			>Start</button>
 		</div>
-		<div>
-			<button class="navbar-button" onclick="window.location.href='/submit'">Submit</button>
-			<button class="navbar-button" onclick="window.location.href='/projects'">Projects</button>
-			<button class="navbar-button" onclick="window.location.href='/guide'">Guide</button>
-			<button class="navbar-button" onclick="window.location.href='/shop'">Shop</button>
+		<div hx-target="body" hx-push-url="true" hx-swap="outerHTML">
+			<button class="navbar-button" hx-get="/submit">Submit</button>
+			<button class="navbar-button" hx-get="/projects">Projects</button>
+			<button class="navbar-button" hx-get="/guide">Guide</button>
+			<button class="navbar-button" hx-get="/shop">Shop</button>
 		</div>
 		<div id="login-section">
-			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
+			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A3004%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
 		</div>
 	</div>
-	<img src="/static/imgs/orpheus-min.svg" id="orpheus">
 	<div id="main">
 		<div class="center-h" style="width:55vw;">
 			<div class="center">
@@ -36,11 +35,13 @@
 					<h1 id="title">LowEnd</h1>
 				</div>
 				
-				<h2 style="text-align: center;">Computer components are getting expensive... lets try to use as little as possible like it's the 2000s</h2>
+				<h2 style="text-align: center;">Computer components are getting expensive... lets try to use as little as possible like it's the 2000s!</h2>
 			</div>
 		</div>
-		<h2>You Ship: Program that uses the least amount of resources and aligns with the rotating theme</h2>
-		<h2>We Ship: Prizes!</h2>
+		<div style="width: 55vw; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); padding: 20px; border-radius: 6px; margin-top: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" class="center">
+			<h2 style="text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"><span style="color: #a2fc89;">You Ship:</span> A program that uses the least amount of resources and aligns with the rotating theme</h2>
+			<h2 style="margin-top:15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"><span style="color: #ffca28;">We Ship:</span> Prizes!</h2>
+		</div>
 	</div>
 	<div class="inlinecards">
 		<div class="card center inline">
@@ -64,30 +65,30 @@
 	<div class="card center">
 		<h1 class="cardtitle">The Point System</h1>
 		<div class="cardinner">
-			<h2>
+			<p>
 				Points are awarded based on features, useage of memory, cpu, and storage, and how much time you spend on the project.
-			</h2>
+			</p>
 			<h1 style="margin-top: 20px;">RAM Milestones</h1>
 			<div class="milestones">
 				<div class="milestone" style="background-color: #e9a115">
 					<h2>Tier 1</h2>
-					<h3>128 MB or more</h3>
+					<h3>100MB+</h3>
 				</div>
 				<div class="milestone" style="background-color: #efb415">
 					<h2>Tier 2</h2>
-					<h3>&lt;128 MB to 64 MB</h3>
+					<h3>40MB to 100MB</h3>
 				</div>
 				<div class="milestone" style="background-color: #f3c719">
 					<h2>Tier 3</h2>
-					<h3>&lt;64 MB to 16 MB</h3>
+					<h3>10MB to 40MB</h3>
 				</div>
 				<div class="milestone" style="background-color: #f6da21">
 					<h2>Tier 4</h2>
-					<h3>&lt;16MB to 4 MB</h3>
+					<h3>1MB to 10MB</h3>
 				</div>
 				<div class="milestone" style="background-color: #f7ee2d">
 					<h2>Tier 5</h2>
-					<h3>4 MB or less</h3>
+					<h3>less than 1MB</h3>
 				</div>
 			</div>
 			<h1>Storage Milestones</h1>
@@ -114,51 +115,86 @@
 				</div>
 			</div>
 			<h2>Want more?</h2>
-			<h3>At the end of each theme there will be a community vote for the programs wuth the best aesthetics, most features, and most optimized</h3>
+			<p>At the end of each theme there will be a community vote for the programs wuth the best aesthetics, most features, and most optimized</p>
 		</div>
 	</div>
 	<div class="card">
 		<h1 class="cardtitle">Frequently Asked Questions</h1>
 		<div class="cardinner">
-			<h2>What is LowEnd?</h2>
-			<p>
-				LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
-			</p>
-			<h2>What can I make?</h2>
-			<p>
-				Any program that fits the current theme and meets the rquirements
-			</p>
-			<h2>What are the requirements?</h2>
-			<p>
-				<uL>
-					<li>The program must be able to run</li>
-					<li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
-					<li>Have at least X of the features from the required feature list of the current theme.</li>
-					<li>1 submission per theme</li>
-				</uL>
-			</p>
-			<h2>Do I have to do every theme?</h2>
-			<p>
-				No, you can choose which themes to participate in, but the more you do the more points you get!
-			</p>
-			<h2>Can I use AI?</h2>
-			<p>
-				TBD AI policy
-			</p>
-			<h2>Am I eligible?</h2>
-			<p>
-				Stuff
-			</p>
-			<h2>When does it end?</h2>
-			<p>
-				TBD
-			</p>
+			<details class="droptext">
+				<summary class="droptext-title">
+					<h2>What is LowEnd?</h2>
+					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+				</summary>
+				<p class="droptext-inner">
+					LowEnd is a YSWS (You Ship, We Ship) program that challanges participants to learn and create low-level programs to use as little resources (CPU, RAM, Storage) as possible.
+				</p>
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
+					<h2>What can I make?</h2>
+					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+				</summary>
+				<p class="droptext-inner">
+					Any program that fits the current theme and meets the rquirements
+				</p>
+			</details>
+			<details class="droptext">
+                <summary class="droptext-title">
+                    <h2>What are the requirements?</h2>
+                    <img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+                </summary>
+                <div class="droptext-inner">
+                    <ul>
+                        <li>The program must be able to run</li>
+                        <li>Spend at least 2 Hacktime hours making it (disclaimer and download link here)</li>
+                        <li>Have at least X of the features from the required feature list of the current theme.</li>
+                        <li>1 submission per theme</li>
+                    </ul>
+                </div>
+            </details>
+			<details class="droptext">
+				<summary class="droptext-title">
+					<h2>Do I have to do every theme?</h2>
+					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+				</summary>
+				<p class="droptext-inner">
+					No, you can choose which themes to participate in, but the more you do the more points you get!
+				</p>
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
+					<h2>Can I use AI?</h2>
+					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+				</summary>
+				<p class="droptext-inner">
+					TBD AI policy
+				</p>
+			</details>
+			<details class="droptext">
+				<summary class="droptext-title">
+					<h2>When does it end?</h2>
+					<img class="droptext-arrow" src="/static/imgs/arrow.svg" style="transform: rotate(180deg);">
+				</summary>
+				<p class="droptext-inner">
+					TBD
+				</p>
+			</details>
 		</div>
 	</div>
 	<div id="disclaimer">
 		<p>This is not a microsoft product nor affiliated with microsoft</p>
 	</div>
+	<div id="orphy" style="cursor:pointer;" onclick="orphyClick()">
+		<img id="orphyimg" src="/static/orphy/orpheus3rmbg.png">
+		<div id="orphytext">
+			<p>Heyoo! I am Orphy, your LowEnd assistant.</p>
+		</div>
+		<div id="textboxtriangle"></div>
+		<img id="orphybackground" src="static/orphy/background.png">
+	</div>
 	<script>
+	{
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('slackid')) {
 			const slackid = urlParams.get('slackid');
@@ -171,6 +207,31 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
+		class OrphySay {
+			constructor(text, duration, pose) {
+				this.text = text;
+				this.duration = duration;
+				this.pose = pose;
+			}
+		}
+		const orphyText = [
+			new OrphySay("Heyoo! I am Orphy, your LowEnd assistant.", 1500, "3"),
+			new OrphySay("Look at me I'm a paperclip", 1500, "2"),
+			new OrphySay("I will be expanded when the guide is made", 1500, "1")
+		]
+		// let istalking = false;
+		window.orphyClick = function() {
+			// if (istalking) return;
+			// istalking = true;
+			const randomIndex = Math.floor(Math.random() * orphyText.length);
+			const orphySay = orphyText[randomIndex];
+			document.getElementById('orphytext').innerHTML = `<p>${orphySay.text}</p>`;
+			document.getElementById('orphyimg').src = `/static/orphy/orpheus${orphySay.pose}rmbg.png`;
+			// setTimeout(() => {
+			// 	istalking = false;
+			// }, orphySay.duration);
+		}
+	}
 	</script>
 </body>
 </html>
