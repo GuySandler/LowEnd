@@ -44,10 +44,9 @@ func main() {
 		tmpl := template.Must(template.ParseFiles("templates/guide.html"))
 		tmpl.Execute(w, nil)
 	})
-	http.HandleFunc("/pagetemplate", func(w http.ResponseWriter, r *http.Request) {
-		tmpl := template.Must(template.ParseFiles("templates/pagetemplate.html"))
+	http.HandleFunc("/shop", func(w http.ResponseWriter, r *http.Request) {
+		tmpl := template.Must(template.ParseFiles("templates/shop.html"))
 		tmpl.Execute(w, nil)
-		// TO BE REMOVED
 	})
 
 	http.HandleFunc("/api/auth/callback", func(w http.ResponseWriter, r *http.Request) {

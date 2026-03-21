@@ -24,10 +24,20 @@
 			<button onclick="window.location.href='https://auth.hackclub.com/oauth/authorize?client_id=421396b4a7e853e891b738766586b76a&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback&response_type=code&scope=email+name+verification_status+slack_id'" class="navbar-button">Login with Hack Club</button>
 		</div>
 	</div>
+	<div class="card" style="width:30vw;">
+		<h1 class="cardtitle">System Error</h1>
+		<div class="cardinner" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+			<img src="/static/imgs/error.png" style="width: 10vw;">
+			<div>
+				<h2>Submissions aren't open yet!</h2>
+				<h2>Check back later.</h2>
+			</div>
+		</div>
+	</div>
 	<div id="orphy" style="cursor:pointer;" onclick="orphyClick()">
 		<img id="orphyimg" src="/static/orphy/orpheus3rmbg.png">
 		<div id="orphytext">
-			<p>Heyoo! I am Orphy, your LowEnd assistant.</p>
+			<p>Submissions aren't open yet!</p>
 		</div>
 		<div id="textboxtriangle"></div>
 		<img id="orphybackground" src="static/orphy/background.png">
@@ -54,9 +64,9 @@
 			}
 		}
 		const orphyText = [
-			new OrphySay("Heyoo! I am Orphy, your LowEnd assistant.", 1500, "3"),
-			new OrphySay("Look at me I'm a paperclip", 1500, "2"),
-			new OrphySay("I will be expanded when the guide is made", 1500, "1")
+			new OrphySay("Submissions aren't open yet!", 1500, "3"),
+			new OrphySay("I will make sure to make this as simple as possible", 1500, "2"),
+			new OrphySay("Score estimator will be included too", 1500, "1")
 		]
 		// let istalking = false;
 		window.orphyClick = function() {

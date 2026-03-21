@@ -185,7 +185,16 @@
 	<div id="disclaimer">
 		<p>This is not a microsoft product nor affiliated with microsoft</p>
 	</div>
+	<div id="orphy" style="cursor:pointer;" onclick="orphyClick()">
+		<img id="orphyimg" src="/static/orphy/orpheus3rmbg.png">
+		<div id="orphytext">
+			<p>Heyoo! I am Orphy, your LowEnd assistant.</p>
+		</div>
+		<div id="textboxtriangle"></div>
+		<img id="orphybackground" src="static/orphy/background.png">
+	</div>
 	<script>
+	{
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('slackid')) {
 			const slackid = urlParams.get('slackid');
@@ -198,6 +207,31 @@
 			const name = localStorage.getItem('name');
 			document.getElementById('login-section').innerHTML = `<span style='padding-right: 10px;'>Logged in as ${name.split(" ")[0]}</span>`;
 		}
+		class OrphySay {
+			constructor(text, duration, pose) {
+				this.text = text;
+				this.duration = duration;
+				this.pose = pose;
+			}
+		}
+		const orphyText = [
+			new OrphySay("Heyoo! I am Orphy, your LowEnd assistant.", 1500, "3"),
+			new OrphySay("Look at me I'm a paperclip", 1500, "2"),
+			new OrphySay("I will be expanded when the guide is made", 1500, "1")
+		]
+		// let istalking = false;
+		window.orphyClick = function() {
+			// if (istalking) return;
+			// istalking = true;
+			const randomIndex = Math.floor(Math.random() * orphyText.length);
+			const orphySay = orphyText[randomIndex];
+			document.getElementById('orphytext').innerHTML = `<p>${orphySay.text}</p>`;
+			document.getElementById('orphyimg').src = `/static/orphy/orpheus${orphySay.pose}rmbg.png`;
+			// setTimeout(() => {
+			// 	istalking = false;
+			// }, orphySay.duration);
+		}
+	}
 	</script>
 </body>
 </html>

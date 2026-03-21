@@ -283,3 +283,49 @@ details[open] .droptext-arrow {
 	transition: transform 0.2s ease;
 	filter: brightness(0) invert(1);
 }
+
+#orphy {
+	position: fixed;
+	right:0;
+	bottom: 0;
+}
+#orphy img {
+	width: 150px;
+	height: auto;
+}
+#orphytext {
+	position: fixed;
+	right: 30px;
+	bottom: 230px;
+	background: rgba(255, 248, 172, 0.8);
+	border: 2px solid black;
+	color: black;
+	padding: 10px 15px;
+	border-radius: 3px;
+	text-align: left;
+	width: max-content;
+	max-width: 300px;
+	max-height: 50vh;
+	font-size: 1.1rem;
+	overflow-y: auto;
+	box-sizing: border-box;
+	word-wrap: break-word; /* Ensure long words break instead of overflowing */
+}
+#textboxtriangle {
+    position: fixed;
+    right: 100px;
+    bottom: 210px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid rgba(255, 248, 172, 0.8);
+}
+#orphybackground {
+	position: fixed;
+	right: 10px;
+	bottom: 0;
+	z-index: -1;
+	transform: perspective(400px) rotateX(25deg) rotateY(15deg) skewX(-10deg);
+    transform-origin: bottom center;
+}
